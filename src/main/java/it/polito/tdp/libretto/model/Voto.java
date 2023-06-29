@@ -13,7 +13,12 @@ public class Voto {
 		this.dataEsame = dataEsame;
 	}
 
-
+	public Voto(Voto v) {
+		this.corso=v.corso;
+		this.punti = v.punti;
+		this.dataEsame = v.dataEsame;
+	}
+	
 	public String getCorso() {
 		return corso;
 	}
@@ -57,8 +62,18 @@ public class Voto {
 		return false;
 	}
 
-
+	public boolean equalsCorso(Voto nuovo) {
+		if(nuovo.getCorso().compareTo(corso)==0 && nuovo.getPunti()!=punti) {
+			return true;
+		}
+		return false;
+	}
 	
+	public Voto clone() {
+		return new Voto(corso, punti, dataEsame);
+	}
+
+
 
 	
 	
